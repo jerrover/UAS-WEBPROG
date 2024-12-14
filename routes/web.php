@@ -35,6 +35,9 @@ Route::middleware(['auth.admin'])->group(function () {
     Route::put('/transactions/{id}', [TransactionController::class, 'update'])->name('transactions.update');
     Route::delete('/transactions/{id}', [TransactionController::class, 'destroy'])->name('transactions.destroy');
     Route::resource('expenses', ExpenseController::class);
+    Route::get('/transactions/export/pdf', [TransactionController::class, 'exportPdf'])->name('transactions.export.pdf');
+    Route::get('/transactions/export/excel', [TransactionController::class, 'exportExcel'])->name('transactions.export.excel');
+
     
     // Penggajian routes
     Route::get('/penggajian', [PenggajianController::class, 'index'])->name('penggajian.index');

@@ -94,6 +94,12 @@
                 </div>
             </div>
         </div>
+        <div class="d-flex justify-content-between mb-3 align-items-center">
+            <a href="{{ route('expenses.index') }}" class="btn btn-info btn-lg">
+                <i class="fas fa-money-bill-wave"></i> Lihat Pengeluaran
+            </a>
+            <a href="{{ route('transactions.export.pdf') }}" class="btn btn-danger btn-lg">Export PDF</a>
+        </div>
     </div>
 </div>
 
@@ -207,10 +213,6 @@
     </div>
 </div>
 
-<!-- Link ke halaman pengeluaran -->
-<a href="{{ route('expenses.index') }}" class="btn btn-info btn-lg mt-3">
-    <i class="fas fa-money-bill-wave"></i> Lihat Pengeluaran
-</a>
 @endsection
 
 @section('scripts')
