@@ -92,7 +92,6 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
             background: rgba(255, 255, 255, 0.15);
             backdrop-filter: blur(5px);
-            border-radius: 10px 0 0 10px;
         }
 
         .price-card {
