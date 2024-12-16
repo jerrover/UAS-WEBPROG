@@ -463,9 +463,9 @@
     </section>
 
     <!-- Tambahkan section area pengiriman setelah hero section -->
-    <section class="delivery-area section-padding">
-        <div class="container">
-            <h2 class="text-center section-title">Area Pengiriman</h2>
+    <section class="delivery-area section-padding ">
+        <div class="container pb-5">
+            <h2 class="text-center section-title pt-5">Area Pengiriman</h2>
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card card-standard">
@@ -503,9 +503,9 @@
     </section>
 
     <!-- Fitur Rekomendasi Air Galon -->
-    <section class="features-section section-padding">
+    <section class="features-section section-padding pb-5">
         <div class="container">
-            <h2 class="text-center section-title mb-5">Mengapa Memilih Kami?</h2>
+            <h2 class="text-center section-title mb-5 mt-5">Mengapa Memilih Kami?</h2>
             <div class="row">
                 <div class="col-md-4 mb-4">
                     <div class="feature-card card-standard">
