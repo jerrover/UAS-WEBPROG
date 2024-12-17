@@ -125,14 +125,37 @@
                             @endforeach
                         </select>
                     </div>
-                    <div class="form-group">
-                        <label>Galon Out</label>
-                        <input type="number" name="galon_out" class="form-control" required>
-                    </div>
+
                     <div class="form-group">
                         <label>Galon In</label>
-                        <input type="number" name="galon_in" class="form-control" required>
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons" id="galonInOptions">
+                            @for ($i = 1; $i <= 5; $i++)
+                            <label class="btn btn-outline-primary">
+                                <input type="radio" name="galon_in_option" value="{{ $i }}"> {{ $i }}
+                            </label>
+                            @endfor
+                            <label class="btn btn-outline-secondary">
+                                <input type="radio" name="galon_in_option" value="other"> Lainnya
+                            </label>
+                        </div>
+                        <input type="number" name="galon_in" class="form-control mt-2" placeholder="Masukkan jumlah galon" style="display: none;">
                     </div>
+
+                    <div class="form-group">
+                        <label>Galon Out</label>
+                        <div class="btn-group btn-group-toggle" data-toggle="buttons" id="galonOutOptions">
+                            @for ($i = 1; $i <= 5; $i++)
+                            <label class="btn btn-outline-primary">
+                                <input type="radio" name="galon_out_option" value="{{ $i }}"> {{ $i }}
+                            </label>
+                            @endfor
+                            <label class="btn btn-outline-secondary">
+                                <input type="radio" name="galon_out_option" value="other"> Lainnya
+                            </label>
+                        </div>
+                        <input type="number" name="galon_out" class="form-control mt-2" placeholder="Masukkan jumlah galon" style="display: none;">
+                    </div>
+
                     <div class="form-group">
                         <label>Transaction Date</label>
                         <input type="date" name="transaction_date" class="form-control" required>
@@ -286,6 +309,28 @@ $(document).ready(function() {
         });
     });
 
+    // Galon In Logic
+    $('input[name="galon_in_option"]').on('change', function() {
+        if ($(this).val() === 'other') {
+            $('input[name="galon_in"]').show().attr('required', true);
+            $('input[name="galon_in"]').val(''); // Clear value when switching to manual input
+        } else {
+            $('input[name="galon_in"]').hide().removeAttr('required');
+            $('input[name="galon_in"]').val($(this).val()); // Sync selected value to input
+        }
+    });
+
+        // Galon Out Logic
+        $('input[name="galon_out_option"]').on('change', function() {
+        if ($(this).val() === 'other') {
+            $('input[name="galon_out"]').show().attr('required', true);
+            $('input[name="galon_out"]').val(''); // Clear value when switching to manual input
+        } else {
+            $('input[name="galon_out"]').hide().removeAttr('required');
+            $('input[name="galon_out"]').val($(this).val()); // Sync selected value to input
+        }
+    });
+    
     // Event handler untuk tombol Edit
     $('.edit-btn').on('click', function() {
         var id = $(this).data('id');

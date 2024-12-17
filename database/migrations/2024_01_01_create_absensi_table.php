@@ -10,7 +10,7 @@ class CreateAbsensiTable extends Migration
     {
         Schema::create('absensi', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('pegawai_id')->constrained('pegawai');
+            $table->foreignId('pegawai_id')->constrained('pegawai'); 
             $table->date('tanggal');
             $table->timestamps();
         });
@@ -20,4 +20,4 @@ class CreateAbsensiTable extends Migration
     {
         Schema::dropIfExists('absensi');
     }
-} 
+}
