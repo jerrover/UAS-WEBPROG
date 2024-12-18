@@ -87,34 +87,36 @@ class PegawaiController extends Controller
 
     public function update(Request $request, $id)
     {
-        try {
-            $request->validate([
-                'nama' => 'required|string|max:255',
-                'no_hp' => 'required|string|max:15',
-            ]);
+        return response()->json(['message' => 'Berhasil']);
+        // try {
+        //     $request->validate([
+        //         'nama' => 'required|string|max:255',
+        //         'no_hp' => 'required|string|max:15',
+        //     ]);
+        //     $result = DB::table('pegawai')
+        //         ->where('id', $id)
+        //         ->update([
+        //             'nama' => $request->nama,
+        //             'no_hp' => $request->no_hp
+        //         ]);
+        //     dd($result);
 
-            $result = DB::table('pegawai')
-                ->where('id', $id)
-                ->update([
-                    'nama' => $request->nama,
-                    'no_hp' => $request->no_hp
-                ]);
+        //     if ($result === 0) {
+        //         throw new \Exception('Tidak ada perubahan data');
 
-            if ($result === 0) {
-                throw new \Exception('Tidak ada perubahan data');
-            }
+        //     }
 
-            return response()->json([
-                'success' => true,
-                'message' => 'Data pegawai berhasil diupdate'
-            ]);
-        } catch (\Exception $e) {
-            Log::error('Error in update method: ' . $e->getMessage());
-            return response()->json([
-                'success' => false,
-                'message' => 'Error: ' . $e->getMessage()
-            ], 500);
-        }
+        //     return response()->json([
+        //         'success' => true,
+        //         'message' => 'Data pegawai berhasil diupdate'
+        //     ]);
+        // } catch (\Exception $e) {
+        //     Log::error('Error in update method: ' . $e->getMessage());
+        //     return response()->json([
+        //         'success' => false,
+        //         'message' => 'Error: ' . $e->getMessage()
+        //     ], 500);
+        // }
     }
 
     public function destroy($id)
