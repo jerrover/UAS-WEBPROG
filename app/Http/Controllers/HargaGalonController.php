@@ -16,6 +16,11 @@ class HargaGalonController extends Controller
         return view('edit-harga-galon.index', compact('harga'));
     }
 
+    public function showHargaGalon()
+    {
+        $data = HargaGalon::all();
+    }
+
     public function update(Request $request, $id)
     {
         $request->validate([

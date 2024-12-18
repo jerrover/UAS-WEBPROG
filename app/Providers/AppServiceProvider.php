@@ -15,16 +15,19 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        // Mengirimkan data harga galon ke seluruh view
-        View::composer('*', function ($view) {
-            $harga = HargaGalon::first();
-            if (!$harga) {
-                // Jika tidak ada harga, buat data baru
-                $harga = HargaGalon::create(['price' => 0]);
-            }
-            $view->with('harga', $harga); // Menambahkan $harga ke seluruh view
-        });
+        // // Mengirimkan data harga galon ke seluruh view
+        // View::composer('*', function ($view) {
+        //     $harga = HargaGalon::first();
+        //     if (!$harga) {
+        //         // Jika tidak ada harga, buat data baru
+        //         $harga = HargaGalon::create(['price' => 0]);
+        //     }
+        //     $view->with('harga', $harga); // Menambahkan $harga ke seluruh view
+        // });
+        $data = HargaGalon::all();
+        View::share('data', $data);
     }
+
 
     /**
      * Register any application services.

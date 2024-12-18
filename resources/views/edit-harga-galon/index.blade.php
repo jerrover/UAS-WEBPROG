@@ -27,8 +27,12 @@
                 @endif
 
                 <div class="form-group">
-                    <label for="harga">Harga Galon</label>
-                    <input type="number" name="harga" id="price" class="form-control" value="{{ old('harga', $harga->price) }}" required>
+                    <label for="harga">Harga Galon Reguler</label>
+                    <input type="number" name="harga-reguler" id="price" class="form-control" value="{{ old('harga', $harga->price) }}" required>
+                </div>
+                <div class="form-group">
+                    <label for="harga">Harga Galon Agen</label>
+                    <input type="number" name="harga-agen" id="price" class="form-control" value="{{ old('harga', $harga->price) }}" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Simpan</button>
             </form>

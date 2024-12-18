@@ -12,15 +12,19 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ExpenseController;
 use App\Http\Controllers\HargaGalonController;
 
-Route::get('/penggajian', [PenggajianController::class, 'index'])->name('penggajian.index');
+// Route::get('/penggajian', [PenggajianController::class, 'index'])->name('penggajian.index');
 // Public routesRoute::get('/penggajian', [PenggajianController::class, 'index'])->name('penggajian.index');
 Route::get('/', [WaterGallonsController::class, 'index'])->name('welcome');
 Route::get('/home', [HomeController::class, 'index'])->name('Home');
+
+// Route::get('/penggajian', [PenggajianController::class, 'index'])->name('penggajian.index');
 
 // Admin auth routes
 Route::get('/admin/login', [AdminController::class, 'showLoginForm'])->name('admin.login');
 Route::post('/admin/login', [AdminController::class, 'login']);
 Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+
+Route::get('/penggajian', [PenggajianController::class, 'index'])->name('penggajian.index');
 
 // Semua route yang memerlukan autentikasi admin
 Route::middleware(['auth.admin'])->group(function () {
@@ -41,7 +45,7 @@ Route::middleware(['auth.admin'])->group(function () {
 
     
     // Penggajian routes
-    Route::get('/penggajian', [PenggajianController::class, 'index'])->name('penggajian.index');
+    // Route::get('/penggajian', [PenggajianController::class, 'index'])->name('penggajian.index');
     
     // Data Pegawai routes
     Route::get('/datapegawai', [PegawaiController::class, 'index'])->name('datapegawai.index');
