@@ -8,10 +8,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Penggajian Pegawai</title>
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
     <style>
         body {
             background-color: #f0f2f5;
+            font-family: 'Poppins', sans-serif;
         }
         .card {
             margin-top: 20px;
@@ -60,7 +61,7 @@
                 <h2>Penggajian Pegawai</h2>
             </div>
             <div class="card-body">
-                <form method="GET" action="{{ url('/penggajian') }}" class="mb-4">
+                {{-- <form method="GET" action="{{ url('/penggajian') }}" class="mb-4">
                     <div class="form-row justify-content-center">
                         <div class="col-md-4">
                             <input type="date" name="tanggal_mulai" class="form-control" required>
@@ -72,7 +73,7 @@
                             <button type="submit" class="btn btn-primary btn-block">Tampilkan</button>
                         </div>
                     </div>
-                </form>
+                </form> --}}
 
                 <table class="table table-bordered table-hover">
                     <thead class="thead-dark">
@@ -82,10 +83,10 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($gajiPerPegawai as $nama => $totalGaji)
+                        @foreach($gajiPerPegawai as $item)
                             <tr>
-                                <td>{{ $nama }}</td>
-                                <td>Rp {{ number_format($totalGaji, 2) }}</td>
+                                <td>{{ $item -> nama }}</td>
+                                <td>Rp {{ number_format($item -> salary, 2) }}</td>
                             </tr>
                         @endforeach
                     </tbody>

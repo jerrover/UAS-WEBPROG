@@ -120,6 +120,13 @@
                             <i class="fas fa-clipboard-list"></i> Absensi
                         </a>
                     </li>
+                    <li class="nav-item {{ Request::is('edit-harga-galon*') ? 'active' : '' }}">
+                    <a class="nav-link" href="{{ route('edit-harga-galon.index') }}">
+                        <i class="fas fa-tag"></i> Edit Harga Galon
+                    </a>
+
+
+                    </li>
                 </ul>
                  <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
